@@ -29,6 +29,8 @@
 		private void InitializeComponent()
 		{
 			splitContainer1 = new SplitContainer();
+			comboBoxResolution = new ComboBox();
+			textBoxExc = new TextBox();
 			textBoxOutTif = new TextBox();
 			label10 = new Label();
 			label9 = new Label();
@@ -53,7 +55,6 @@
 			buttonRun = new Button();
 			textBoxPath = new TextBox();
 			previewBox = new PictureBox();
-			textBoxExc = new TextBox();
 			((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
 			splitContainer1.Panel1.SuspendLayout();
 			splitContainer1.Panel2.SuspendLayout();
@@ -69,6 +70,7 @@
 			// 
 			// splitContainer1.Panel1
 			// 
+			splitContainer1.Panel1.Controls.Add(comboBoxResolution);
 			splitContainer1.Panel1.Controls.Add(textBoxExc);
 			splitContainer1.Panel1.Controls.Add(textBoxOutTif);
 			splitContainer1.Panel1.Controls.Add(label10);
@@ -101,12 +103,31 @@
 			splitContainer1.SplitterDistance = 266;
 			splitContainer1.TabIndex = 0;
 			// 
+			// comboBoxResolution
+			// 
+			comboBoxResolution.DropDownStyle = ComboBoxStyle.DropDownList;
+			comboBoxResolution.FormattingEnabled = true;
+			comboBoxResolution.Items.AddRange(new object[] { "1k", "4k", "downsampled_4k" });
+			comboBoxResolution.Location = new Point(12, 378);
+			comboBoxResolution.Name = "comboBoxResolution";
+			comboBoxResolution.Size = new Size(232, 23);
+			comboBoxResolution.TabIndex = 24;
+			// 
+			// textBoxExc
+			// 
+			textBoxExc.Location = new Point(12, 455);
+			textBoxExc.Multiline = true;
+			textBoxExc.Name = "textBoxExc";
+			textBoxExc.Size = new Size(232, 74);
+			textBoxExc.TabIndex = 23;
+			textBoxExc.Text = "0";
+			// 
 			// textBoxOutTif
 			// 
 			textBoxOutTif.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
 			textBoxOutTif.Location = new Point(12, 41);
 			textBoxOutTif.Name = "textBoxOutTif";
-			textBoxOutTif.Size = new Size(251, 23);
+			textBoxOutTif.Size = new Size(232, 23);
 			textBoxOutTif.TabIndex = 22;
 			textBoxOutTif.Text = "C:\\Temp\\out.tif";
 			// 
@@ -282,9 +303,9 @@
 			// 
 			// buttonRun
 			// 
-			buttonRun.Location = new Point(12, 391);
+			buttonRun.Location = new Point(12, 417);
 			buttonRun.Name = "buttonRun";
-			buttonRun.Size = new Size(251, 23);
+			buttonRun.Size = new Size(232, 23);
 			buttonRun.TabIndex = 1;
 			buttonRun.Text = "Run";
 			buttonRun.UseVisualStyleBackColor = true;
@@ -295,7 +316,7 @@
 			textBoxPath.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
 			textBoxPath.Location = new Point(12, 12);
 			textBoxPath.Name = "textBoxPath";
-			textBoxPath.Size = new Size(251, 23);
+			textBoxPath.Size = new Size(232, 23);
 			textBoxPath.TabIndex = 0;
 			textBoxPath.Text = "Z:\\_document\\Programming\\cpp\\guilloché\\a.exe";
 			// 
@@ -310,15 +331,6 @@
 			previewBox.TabIndex = 0;
 			previewBox.TabStop = false;
 			// 
-			// textBoxExc
-			// 
-			textBoxExc.Location = new Point(12, 429);
-			textBoxExc.Multiline = true;
-			textBoxExc.Name = "textBoxExc";
-			textBoxExc.Size = new Size(232, 74);
-			textBoxExc.TabIndex = 23;
-			textBoxExc.Text = "0";
-			// 
 			// Form1
 			// 
 			AcceptButton = buttonRun;
@@ -328,6 +340,7 @@
 			Controls.Add(splitContainer1);
 			Name = "Form1";
 			Text = "Form1";
+			FormClosing += Form1_FormClosing;
 			splitContainer1.Panel1.ResumeLayout(false);
 			splitContainer1.Panel1.PerformLayout();
 			splitContainer1.Panel2.ResumeLayout(false);
@@ -365,5 +378,6 @@
 		private TextBox textBox1;
 		private TextBox textBoxOutTif;
 		private TextBox textBoxExc;
+		private ComboBox comboBoxResolution;
 	}
 }

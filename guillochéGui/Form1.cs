@@ -1,27 +1,52 @@
+using System;
 using System.Diagnostics;
+using System.IO;
 
 namespace guillochéGui
 {
 	public partial class Form1 : Form
 	{
-		private System.Windows.Forms.Timer _timer = new System.Windows.Forms.Timer();
 		private DateTime _lastPreview = DateTime.Now;
-		private MemoryStream _picture;
+		private MemoryStream _picture = new();
+		private System.Windows.Forms.Timer _timer = new();
+		private Process? _gc;
 
 		public Form1()
 		{
 			InitializeComponent();
+			comboBoxResolution.SelectedIndex = 0;
 			_timer.Tick += _timer_Tick;
 			_timer.Interval = 250;
-			//_timer.Enabled = true;
+			_timer.Enabled = true;
+
+			startGc();
 		}
 
 		private void _timer_Tick(object? sender, EventArgs e)
 		{
+			updatePicture();
+		}
+
+		private void startGc()
+		{
+			var gc = textBoxPath.Text;
+			var gci = new FileInfo(gc);
+			if (!gci.Exists) return;
+			var path = gci.Directory?.FullName;
+			var p = new ProcessStartInfo(gc, "x")
+			{
+				WorkingDirectory = path ?? ".",
+				CreateNoWindow = false,
+				RedirectStandardInput = true,
+			};
+			_gc = Process.Start(p);
+		}
+
+		private void updatePicture()
+		{
 			var pf = new FileInfo(textBoxOutTif.Text);
 			if (!pf.Exists) return;
 			if (pf.LastWriteTime == _lastPreview) return;
-			//_timer.Enabled = false;
 			_lastPreview = pf.LastWriteTime;
 			try
 			{
@@ -34,27 +59,18 @@ namespace guillochéGui
 			{
 				textBoxExc.Text = ex.ToString();
 			}
-			//_timer.Enabled = true;
 		}
 
 		private void buttonRun_Click(object sender, EventArgs e)
 		{
-			var gc = textBoxPath.Text;
-			var gci = new FileInfo(gc);
-			if (!gci.Exists) return;
-			var path = gci.Directory.FullName;
-			var args = $"{textBox1.Text} {textBox2.Text} {textBox3.Text} {textBox4.Text} {textBox5.Text} {textBox6.Text} {textBox7.Text} {textBox8.Text} {textBox9.Text} {textBox10.Text}";
-			var p = new ProcessStartInfo(gc, args)
-			{
-				WorkingDirectory = path,
-				CreateNoWindow = false,
-				//RedirectStandardOutput = true,
-			};
-			var proc = Process.Start(p);
-			//var output = proc.StandardOutput.ReadToEnd();
-			proc.WaitForExit();
-			textBoxExc.Text = "done";
-			_timer_Tick(null, null);
+			if (_gc == null || _gc.HasExited) startGc();
+			var args = $"x {textBox1.Text} {textBox2.Text} {textBox3.Text} {textBox4.Text} {textBox5.Text} {textBox6.Text} {textBox7.Text} {textBox8.Text} {textBox9.Text} {textBox10.Text} {comboBoxResolution.Text}";
+			_gc.StandardInput.WriteLine(args);
+		}
+
+		private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+		{
+			_gc.Kill();
 		}
 	}
 }
