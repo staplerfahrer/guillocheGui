@@ -38,6 +38,7 @@ namespace guillochéGui
 				WorkingDirectory = path ?? ".",
 				CreateNoWindow = false,
 				RedirectStandardInput = true,
+				WindowStyle = ProcessWindowStyle.Minimized,
 			};
 			_gc = Process.Start(p);
 		}
@@ -65,12 +66,12 @@ namespace guillochéGui
 		{
 			if (_gc == null || _gc.HasExited) startGc();
 			var args = $"x {textBox1.Text} {textBox2.Text} {textBox3.Text} {textBox4.Text} {textBox5.Text} {textBox6.Text} {textBox7.Text} {textBox8.Text} {textBox9.Text} {textBox10.Text} {comboBoxResolution.Text}";
-			_gc.StandardInput.WriteLine(args);
+			_gc?.StandardInput.WriteLine(args);
 		}
 
 		private void Form1_FormClosing(object sender, FormClosingEventArgs e)
 		{
-			_gc.Kill();
+			_gc?.StandardInput.WriteLine("");
 		}
 	}
 }
