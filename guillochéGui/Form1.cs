@@ -86,5 +86,17 @@ namespace guillochéGui
 		{
 			_gc?.StandardInput.WriteLine("");
 		}
+
+		private void previewBox_Click(object sender, EventArgs e)
+		{
+			previewBox.SizeMode = previewBox.SizeMode == PictureBoxSizeMode.Zoom
+				? PictureBoxSizeMode.CenterImage
+				: PictureBoxSizeMode.Zoom;
+		}
+
+		private void buttonPhotoshop_Click(object sender, EventArgs e)
+		{
+			Process.Start(textBoxPhotoshop.Text, textBoxOutTif.Text);
+		}
 	}
 }
