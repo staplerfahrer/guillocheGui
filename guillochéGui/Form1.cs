@@ -15,11 +15,15 @@ namespace guillochéGui
 		{
 			InitializeComponent();
 			comboBoxResolution.SelectedIndex = 0;
+			comboBoxTool.SelectedIndex = 0;
+			comboBoxAlgorithm.SelectedIndex = 0;
+
 			_timer.Tick += _timer_Tick;
 			_timer.Interval = 250;
 			_timer.Enabled = true;
 
 			startGc();
+			this.Focus();
 		}
 
 		private void _timer_Tick(object? sender, EventArgs e)
@@ -41,6 +45,10 @@ namespace guillochéGui
 				WindowStyle = ProcessWindowStyle.Minimized,
 			};
 			_gc = Process.Start(p);
+			if (_gc != null)
+			{
+				_gc.PriorityClass = ProcessPriorityClass.Idle;
+			}
 		}
 
 		private void updatePicture()
@@ -55,6 +63,8 @@ namespace guillochéGui
 				_picture = new MemoryStream(File.ReadAllBytes(pf.FullName));
 				previewBox.Image?.Dispose();
 				previewBox.Image = Image.FromStream(_picture);
+				previewBox.BackColor = SystemColors.ControlDark;
+				previewBox.Update();
 			}
 			catch (Exception ex)
 			{
@@ -64,8 +74,11 @@ namespace guillochéGui
 
 		private void buttonRun_Click(object sender, EventArgs e)
 		{
+			previewBox.BackColor = Color.Black;
+			previewBox.Update();
+			Thread.Sleep(100);
 			if (_gc == null || _gc.HasExited) startGc();
-			var args = $"x {textBox1.Text} {textBox2.Text} {textBox3.Text} {textBox4.Text} {textBox5.Text} {textBox6.Text} {textBox7.Text} {textBox8.Text} {textBox9.Text} {textBox10.Text} {comboBoxResolution.Text}";
+			var args = $"x {textBox1.Text} {textBox2.Text} {textBox3.Text} {textBox4.Text} {textBox5.Text} {textBox6.Text} {textBox7.Text} {textBox8.Text} {textBox9.Text} {textBox10.Text} {comboBoxResolution.Text} {comboBoxTool.Text} {comboBoxAlgorithm.Text}";
 			_gc?.StandardInput.WriteLine(args);
 		}
 

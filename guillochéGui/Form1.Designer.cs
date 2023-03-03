@@ -29,6 +29,8 @@
 		private void InitializeComponent()
 		{
 			splitContainer1 = new SplitContainer();
+			comboBoxAlgorithm = new ComboBox();
+			comboBoxTool = new ComboBox();
 			comboBoxResolution = new ComboBox();
 			textBoxExc = new TextBox();
 			textBoxOutTif = new TextBox();
@@ -70,6 +72,8 @@
 			// 
 			// splitContainer1.Panel1
 			// 
+			splitContainer1.Panel1.Controls.Add(comboBoxAlgorithm);
+			splitContainer1.Panel1.Controls.Add(comboBoxTool);
 			splitContainer1.Panel1.Controls.Add(comboBoxResolution);
 			splitContainer1.Panel1.Controls.Add(textBoxExc);
 			splitContainer1.Panel1.Controls.Add(textBoxOutTif);
@@ -99,9 +103,29 @@
 			// splitContainer1.Panel2
 			// 
 			splitContainer1.Panel2.Controls.Add(previewBox);
-			splitContainer1.Size = new Size(800, 579);
+			splitContainer1.Size = new Size(800, 697);
 			splitContainer1.SplitterDistance = 266;
 			splitContainer1.TabIndex = 0;
+			// 
+			// comboBoxAlgorithm
+			// 
+			comboBoxAlgorithm.DropDownStyle = ComboBoxStyle.DropDownList;
+			comboBoxAlgorithm.FormattingEnabled = true;
+			comboBoxAlgorithm.Items.AddRange(new object[] { "customParameterDrawing", "sunburstAndCircles" });
+			comboBoxAlgorithm.Location = new Point(12, 436);
+			comboBoxAlgorithm.Name = "comboBoxAlgorithm";
+			comboBoxAlgorithm.Size = new Size(232, 23);
+			comboBoxAlgorithm.TabIndex = 12;
+			// 
+			// comboBoxTool
+			// 
+			comboBoxTool.DropDownStyle = ComboBoxStyle.DropDownList;
+			comboBoxTool.FormattingEnabled = true;
+			comboBoxTool.Items.AddRange(new object[] { "cone63", "cone255", "cone1023" });
+			comboBoxTool.Location = new Point(12, 407);
+			comboBoxTool.Name = "comboBoxTool";
+			comboBoxTool.Size = new Size(232, 23);
+			comboBoxTool.TabIndex = 11;
 			// 
 			// comboBoxResolution
 			// 
@@ -111,15 +135,16 @@
 			comboBoxResolution.Location = new Point(12, 378);
 			comboBoxResolution.Name = "comboBoxResolution";
 			comboBoxResolution.Size = new Size(232, 23);
-			comboBoxResolution.TabIndex = 24;
+			comboBoxResolution.TabIndex = 10;
 			// 
 			// textBoxExc
 			// 
-			textBoxExc.Location = new Point(12, 455);
+			textBoxExc.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+			textBoxExc.Location = new Point(12, 570);
 			textBoxExc.Multiline = true;
 			textBoxExc.Name = "textBoxExc";
-			textBoxExc.Size = new Size(232, 74);
-			textBoxExc.TabIndex = 23;
+			textBoxExc.Size = new Size(232, 115);
+			textBoxExc.TabIndex = 14;
 			textBoxExc.Text = "0";
 			// 
 			// textBoxOutTif
@@ -128,7 +153,7 @@
 			textBoxOutTif.Location = new Point(12, 41);
 			textBoxOutTif.Name = "textBoxOutTif";
 			textBoxOutTif.Size = new Size(232, 23);
-			textBoxOutTif.TabIndex = 22;
+			textBoxOutTif.TabIndex = 16;
 			textBoxOutTif.Text = "C:\\Temp\\out.tif";
 			// 
 			// label10
@@ -226,7 +251,7 @@
 			textBox10.Location = new Point(144, 346);
 			textBox10.Name = "textBox10";
 			textBox10.Size = new Size(100, 23);
-			textBox10.TabIndex = 11;
+			textBox10.TabIndex = 9;
 			textBox10.Text = "0";
 			// 
 			// textBox9
@@ -234,7 +259,7 @@
 			textBox9.Location = new Point(144, 317);
 			textBox9.Name = "textBox9";
 			textBox9.Size = new Size(100, 23);
-			textBox9.TabIndex = 10;
+			textBox9.TabIndex = 8;
 			textBox9.Text = "0.1";
 			// 
 			// textBox8
@@ -242,7 +267,7 @@
 			textBox8.Location = new Point(144, 288);
 			textBox8.Name = "textBox8";
 			textBox8.Size = new Size(100, 23);
-			textBox8.TabIndex = 9;
+			textBox8.TabIndex = 7;
 			textBox8.Text = "72";
 			// 
 			// textBox7
@@ -250,47 +275,47 @@
 			textBox7.Location = new Point(144, 259);
 			textBox7.Name = "textBox7";
 			textBox7.Size = new Size(100, 23);
-			textBox7.TabIndex = 8;
-			textBox7.Text = "0.4";
+			textBox7.TabIndex = 6;
+			textBox7.Text = "0";
 			// 
 			// textBox6
 			// 
 			textBox6.Location = new Point(144, 230);
 			textBox6.Name = "textBox6";
 			textBox6.Size = new Size(100, 23);
-			textBox6.TabIndex = 7;
-			textBox6.Text = "0.1";
+			textBox6.TabIndex = 5;
+			textBox6.Text = "0";
 			// 
 			// textBox5
 			// 
 			textBox5.Location = new Point(144, 201);
 			textBox5.Name = "textBox5";
 			textBox5.Size = new Size(100, 23);
-			textBox5.TabIndex = 6;
-			textBox5.Text = "0.9";
+			textBox5.TabIndex = 4;
+			textBox5.Text = "0.99";
 			// 
 			// textBox4
 			// 
 			textBox4.Location = new Point(144, 172);
 			textBox4.Name = "textBox4";
 			textBox4.Size = new Size(100, 23);
-			textBox4.TabIndex = 5;
-			textBox4.Text = "0.125";
+			textBox4.TabIndex = 3;
+			textBox4.Text = "1";
 			// 
 			// textBox3
 			// 
 			textBox3.Location = new Point(144, 143);
 			textBox3.Name = "textBox3";
 			textBox3.Size = new Size(100, 23);
-			textBox3.TabIndex = 4;
-			textBox3.Text = "0.875";
+			textBox3.TabIndex = 2;
+			textBox3.Text = "1";
 			// 
 			// textBox2
 			// 
 			textBox2.Location = new Point(144, 114);
 			textBox2.Name = "textBox2";
 			textBox2.Size = new Size(100, 23);
-			textBox2.TabIndex = 3;
+			textBox2.TabIndex = 1;
 			textBox2.Text = "0";
 			// 
 			// textBox1
@@ -298,15 +323,16 @@
 			textBox1.Location = new Point(144, 85);
 			textBox1.Name = "textBox1";
 			textBox1.Size = new Size(100, 23);
-			textBox1.TabIndex = 2;
+			textBox1.TabIndex = 0;
 			textBox1.Text = "0";
 			// 
 			// buttonRun
 			// 
-			buttonRun.Location = new Point(12, 417);
+			buttonRun.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+			buttonRun.Location = new Point(12, 524);
 			buttonRun.Name = "buttonRun";
 			buttonRun.Size = new Size(232, 23);
-			buttonRun.TabIndex = 1;
+			buttonRun.TabIndex = 13;
 			buttonRun.Text = "Run";
 			buttonRun.UseVisualStyleBackColor = true;
 			buttonRun.Click += buttonRun_Click;
@@ -317,7 +343,7 @@
 			textBoxPath.Location = new Point(12, 12);
 			textBoxPath.Name = "textBoxPath";
 			textBoxPath.Size = new Size(232, 23);
-			textBoxPath.TabIndex = 0;
+			textBoxPath.TabIndex = 15;
 			textBoxPath.Text = "Z:\\_document\\Programming\\cpp\\guilloché\\a.exe";
 			// 
 			// previewBox
@@ -326,7 +352,7 @@
 			previewBox.Dock = DockStyle.Fill;
 			previewBox.Location = new Point(0, 0);
 			previewBox.Name = "previewBox";
-			previewBox.Size = new Size(530, 579);
+			previewBox.Size = new Size(530, 697);
 			previewBox.SizeMode = PictureBoxSizeMode.Zoom;
 			previewBox.TabIndex = 0;
 			previewBox.TabStop = false;
@@ -336,10 +362,11 @@
 			AcceptButton = buttonRun;
 			AutoScaleDimensions = new SizeF(7F, 15F);
 			AutoScaleMode = AutoScaleMode.Font;
-			ClientSize = new Size(800, 579);
+			ClientSize = new Size(800, 697);
 			Controls.Add(splitContainer1);
 			Name = "Form1";
 			Text = "Form1";
+			WindowState = FormWindowState.Maximized;
 			FormClosing += Form1_FormClosing;
 			splitContainer1.Panel1.ResumeLayout(false);
 			splitContainer1.Panel1.PerformLayout();
@@ -379,5 +406,7 @@
 		private TextBox textBoxOutTif;
 		private TextBox textBoxExc;
 		private ComboBox comboBoxResolution;
+		private ComboBox comboBoxTool;
+		private ComboBox comboBoxAlgorithm;
 	}
 }
