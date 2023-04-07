@@ -32,7 +32,6 @@
 			buttonPhotoshop = new Button();
 			textBoxPhotoshop = new TextBox();
 			comboBoxAlgorithm = new ComboBox();
-			comboBoxTool = new ComboBox();
 			comboBoxResolution = new ComboBox();
 			textBoxExc = new TextBox();
 			textBoxOutTif = new TextBox();
@@ -77,7 +76,6 @@
 			splitContainer1.Panel1.Controls.Add(buttonPhotoshop);
 			splitContainer1.Panel1.Controls.Add(textBoxPhotoshop);
 			splitContainer1.Panel1.Controls.Add(comboBoxAlgorithm);
-			splitContainer1.Panel1.Controls.Add(comboBoxTool);
 			splitContainer1.Panel1.Controls.Add(comboBoxResolution);
 			splitContainer1.Panel1.Controls.Add(textBoxExc);
 			splitContainer1.Panel1.Controls.Add(textBoxOutTif);
@@ -135,27 +133,17 @@
 			// 
 			comboBoxAlgorithm.DropDownStyle = ComboBoxStyle.DropDownList;
 			comboBoxAlgorithm.FormattingEnabled = true;
-			comboBoxAlgorithm.Items.AddRange(new object[] { "customParameterDrawing", "sunburstAndCircles" });
-			comboBoxAlgorithm.Location = new Point(12, 458);
+			comboBoxAlgorithm.Items.AddRange(new object[] { "customParameterDrawing", "sunburstAndCircles", "slinky", "drawCone" });
+			comboBoxAlgorithm.Location = new Point(12, 429);
 			comboBoxAlgorithm.Name = "comboBoxAlgorithm";
 			comboBoxAlgorithm.Size = new Size(232, 23);
 			comboBoxAlgorithm.TabIndex = 12;
-			// 
-			// comboBoxTool
-			// 
-			comboBoxTool.DropDownStyle = ComboBoxStyle.DropDownList;
-			comboBoxTool.FormattingEnabled = true;
-			comboBoxTool.Items.AddRange(new object[] { "cone63", "cone255", "cone1023" });
-			comboBoxTool.Location = new Point(12, 429);
-			comboBoxTool.Name = "comboBoxTool";
-			comboBoxTool.Size = new Size(232, 23);
-			comboBoxTool.TabIndex = 11;
 			// 
 			// comboBoxResolution
 			// 
 			comboBoxResolution.DropDownStyle = ComboBoxStyle.DropDownList;
 			comboBoxResolution.FormattingEnabled = true;
-			comboBoxResolution.Items.AddRange(new object[] { "1k", "4k", "downsampled_4k" });
+			comboBoxResolution.Items.AddRange(new object[] { "1k", "4k", "8k", "16k" });
 			comboBoxResolution.Location = new Point(12, 400);
 			comboBoxResolution.Name = "comboBoxResolution";
 			comboBoxResolution.Size = new Size(232, 23);
@@ -368,7 +356,7 @@
 			textBoxPath.Name = "textBoxPath";
 			textBoxPath.Size = new Size(232, 23);
 			textBoxPath.TabIndex = 16;
-			textBoxPath.Text = "Z:\\_document\\Programming\\cpp\\guilloché\\a.exe";
+			textBoxPath.Text = "Z:\\_document\\Programming\\cpp\\guilloché\\guilloche.exe";
 			// 
 			// previewBox
 			// 
@@ -431,7 +419,6 @@
 		private TextBox textBoxOutTif;
 		private TextBox textBoxExc;
 		private ComboBox comboBoxResolution;
-		private ComboBox comboBoxTool;
 		private ComboBox comboBoxAlgorithm;
 		private Button buttonPhotoshop;
 		private TextBox textBoxPhotoshop;

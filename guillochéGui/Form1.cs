@@ -15,7 +15,6 @@ namespace guillochéGui
 		{
 			InitializeComponent();
 			comboBoxResolution.SelectedIndex = 0;
-			comboBoxTool.SelectedIndex = 0;
 			comboBoxAlgorithm.SelectedIndex = 0;
 
 			_timer.Tick += _timer_Tick;
@@ -37,7 +36,7 @@ namespace guillochéGui
 			var gci = new FileInfo(gc);
 			if (!gci.Exists) return;
 			var path = gci.Directory?.FullName;
-			var p = new ProcessStartInfo(gc, "x")
+			var p = new ProcessStartInfo(gc)
 			{
 				WorkingDirectory = path ?? ".",
 				CreateNoWindow = false,
@@ -78,7 +77,7 @@ namespace guillochéGui
 			previewBox.Update();
 			Thread.Sleep(100);
 			if (_gc == null || _gc.HasExited) startGc();
-			var args = $"x {textBox1.Text} {textBox2.Text} {textBox3.Text} {textBox4.Text} {textBox5.Text} {textBox6.Text} {textBox7.Text} {textBox8.Text} {textBox9.Text} {textBox10.Text} {comboBoxResolution.Text} {comboBoxTool.Text} {comboBoxAlgorithm.Text}";
+			var args = $"{textBox1.Text} {textBox2.Text} {textBox3.Text} {textBox4.Text} {textBox5.Text} {textBox6.Text} {textBox7.Text} {textBox8.Text} {textBox9.Text} {textBox10.Text} {comboBoxResolution.Text} {comboBoxAlgorithm.Text}";
 			_gc?.StandardInput.WriteLine(args);
 		}
 
