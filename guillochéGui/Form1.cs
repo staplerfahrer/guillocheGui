@@ -77,7 +77,19 @@ namespace guillochéGui
 			previewBox.Update();
 			Thread.Sleep(100);
 			if (_gc == null || _gc.HasExited) startGc();
-			var args = $"{textBox1.Text} {textBox2.Text} {textBox3.Text} {textBox4.Text} {textBox5.Text} {textBox6.Text} {textBox7.Text} {textBox8.Text} {textBox9.Text} {textBox10.Text} {comboBoxResolution.Text} {comboBoxAlgorithm.Text}";
+			var args = $"{textBox1.Text}"
+				+ $" {textBox2.Text}"
+				+ $" {textBox3.Text}"
+				+ $" {textBox4.Text}"
+				+ $" {textBox5.Text}"
+				+ $" {textBox6.Text}"
+				+ $" {textBox7.Text}"
+				+ $" {textBox8.Text}"
+				+ $" {textBox9.Text}"
+				+ $" {textBox10.Text}"
+				+ $" {textBox11.Text}"
+				+ $" {comboBoxResolution.Text}"
+				+ $" {comboBoxAlgorithm.Text}";
 			_gc?.StandardInput.WriteLine(args);
 		}
 
@@ -97,5 +109,6 @@ namespace guillochéGui
 		{
 			Process.Start(textBoxPhotoshop.Text, textBoxOutTif.Text);
 		}
+
 	}
 }

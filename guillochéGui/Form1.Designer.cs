@@ -29,6 +29,8 @@
 		private void InitializeComponent()
 		{
 			splitContainer1 = new SplitContainer();
+			label11 = new Label();
+			textBox11 = new TextBox();
 			buttonPhotoshop = new Button();
 			textBoxPhotoshop = new TextBox();
 			comboBoxAlgorithm = new ComboBox();
@@ -73,6 +75,8 @@
 			// 
 			// splitContainer1.Panel1
 			// 
+			splitContainer1.Panel1.Controls.Add(label11);
+			splitContainer1.Panel1.Controls.Add(textBox11);
 			splitContainer1.Panel1.Controls.Add(buttonPhotoshop);
 			splitContainer1.Panel1.Controls.Add(textBoxPhotoshop);
 			splitContainer1.Panel1.Controls.Add(comboBoxAlgorithm);
@@ -106,8 +110,25 @@
 			// 
 			splitContainer1.Panel2.Controls.Add(previewBox);
 			splitContainer1.Size = new Size(800, 697);
-			splitContainer1.SplitterDistance = 266;
+			splitContainer1.SplitterDistance = 346;
 			splitContainer1.TabIndex = 0;
+			// 
+			// label11
+			// 
+			label11.AutoSize = true;
+			label11.Location = new Point(12, 396);
+			label11.Name = "label11";
+			label11.Size = new Size(106, 15);
+			label11.TabIndex = 23;
+			label11.Text = "Tool Width (factor)";
+			// 
+			// textBox11
+			// 
+			textBox11.Location = new Point(144, 393);
+			textBox11.Name = "textBox11";
+			textBox11.Size = new Size(100, 23);
+			textBox11.TabIndex = 10;
+			textBox11.Text = "0.01";
 			// 
 			// buttonPhotoshop
 			// 
@@ -125,7 +146,7 @@
 			textBoxPhotoshop.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
 			textBoxPhotoshop.Location = new Point(12, 41);
 			textBoxPhotoshop.Name = "textBoxPhotoshop";
-			textBoxPhotoshop.Size = new Size(232, 23);
+			textBoxPhotoshop.Size = new Size(312, 23);
 			textBoxPhotoshop.TabIndex = 17;
 			textBoxPhotoshop.Text = "C:\\Program Files (x86)\\Adobe\\Adobe Photoshop CS2\\Photoshop.exe";
 			// 
@@ -134,7 +155,7 @@
 			comboBoxAlgorithm.DropDownStyle = ComboBoxStyle.DropDownList;
 			comboBoxAlgorithm.FormattingEnabled = true;
 			comboBoxAlgorithm.Items.AddRange(new object[] { "customParameterDrawing", "sunburstAndCircles", "slinky", "drawCone" });
-			comboBoxAlgorithm.Location = new Point(12, 429);
+			comboBoxAlgorithm.Location = new Point(12, 463);
 			comboBoxAlgorithm.Name = "comboBoxAlgorithm";
 			comboBoxAlgorithm.Size = new Size(232, 23);
 			comboBoxAlgorithm.TabIndex = 12;
@@ -144,10 +165,10 @@
 			comboBoxResolution.DropDownStyle = ComboBoxStyle.DropDownList;
 			comboBoxResolution.FormattingEnabled = true;
 			comboBoxResolution.Items.AddRange(new object[] { "1k", "4k", "8k", "16k" });
-			comboBoxResolution.Location = new Point(12, 400);
+			comboBoxResolution.Location = new Point(12, 434);
 			comboBoxResolution.Name = "comboBoxResolution";
 			comboBoxResolution.Size = new Size(232, 23);
-			comboBoxResolution.TabIndex = 10;
+			comboBoxResolution.TabIndex = 11;
 			// 
 			// textBoxExc
 			// 
@@ -155,7 +176,7 @@
 			textBoxExc.Location = new Point(12, 570);
 			textBoxExc.Multiline = true;
 			textBoxExc.Name = "textBoxExc";
-			textBoxExc.Size = new Size(232, 115);
+			textBoxExc.Size = new Size(312, 115);
 			textBoxExc.TabIndex = 15;
 			textBoxExc.Text = "0";
 			// 
@@ -164,14 +185,14 @@
 			textBoxOutTif.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
 			textBoxOutTif.Location = new Point(12, 70);
 			textBoxOutTif.Name = "textBoxOutTif";
-			textBoxOutTif.Size = new Size(232, 23);
+			textBoxOutTif.Size = new Size(312, 23);
 			textBoxOutTif.TabIndex = 18;
 			textBoxOutTif.Text = "C:\\Temp\\out.tif";
 			// 
 			// label10
 			// 
 			label10.AutoSize = true;
-			label10.Location = new Point(12, 371);
+			label10.Location = new Point(12, 367);
 			label10.Name = "label10";
 			label10.Size = new Size(95, 15);
 			label10.TabIndex = 21;
@@ -180,7 +201,7 @@
 			// label9
 			// 
 			label9.AutoSize = true;
-			label9.Location = new Point(12, 342);
+			label9.Location = new Point(12, 338);
 			label9.Name = "label9";
 			label9.Size = new Size(114, 15);
 			label9.TabIndex = 20;
@@ -189,7 +210,7 @@
 			// label8
 			// 
 			label8.AutoSize = true;
-			label8.Location = new Point(12, 313);
+			label8.Location = new Point(12, 309);
 			label8.Name = "label8";
 			label8.Size = new Size(71, 15);
 			label8.TabIndex = 19;
@@ -198,7 +219,7 @@
 			// label7
 			// 
 			label7.AutoSize = true;
-			label7.Location = new Point(12, 284);
+			label7.Location = new Point(12, 280);
 			label7.Name = "label7";
 			label7.Size = new Size(105, 15);
 			label7.TabIndex = 18;
@@ -207,7 +228,7 @@
 			// label6
 			// 
 			label6.AutoSize = true;
-			label6.Location = new Point(12, 255);
+			label6.Location = new Point(12, 251);
 			label6.Name = "label6";
 			label6.Size = new Size(71, 15);
 			label6.TabIndex = 17;
@@ -216,16 +237,16 @@
 			// label5
 			// 
 			label5.AutoSize = true;
-			label5.Location = new Point(12, 226);
+			label5.Location = new Point(12, 222);
 			label5.Name = "label5";
-			label5.Size = new Size(72, 15);
+			label5.Size = new Size(125, 15);
 			label5.TabIndex = 16;
-			label5.Text = "wheel1SizeA";
+			label5.Text = "Wheel 1 Size A (factor)";
 			// 
 			// label4
 			// 
 			label4.AutoSize = true;
-			label4.Location = new Point(12, 197);
+			label4.Location = new Point(12, 193);
 			label4.Name = "label4";
 			label4.Size = new Size(45, 15);
 			label4.TabIndex = 15;
@@ -234,7 +255,7 @@
 			// label3
 			// 
 			label3.AutoSize = true;
-			label3.Location = new Point(12, 168);
+			label3.Location = new Point(12, 164);
 			label3.Name = "label3";
 			label3.Size = new Size(46, 15);
 			label3.TabIndex = 14;
@@ -243,7 +264,7 @@
 			// label2
 			// 
 			label2.AutoSize = true;
-			label2.Location = new Point(12, 139);
+			label2.Location = new Point(12, 135);
 			label2.Name = "label2";
 			label2.Size = new Size(35, 15);
 			label2.TabIndex = 13;
@@ -252,7 +273,7 @@
 			// label1
 			// 
 			label1.AutoSize = true;
-			label1.Location = new Point(12, 110);
+			label1.Location = new Point(12, 106);
 			label1.Name = "label1";
 			label1.Size = new Size(39, 15);
 			label1.TabIndex = 12;
@@ -260,23 +281,23 @@
 			// 
 			// textBox10
 			// 
-			textBox10.Location = new Point(144, 368);
+			textBox10.Location = new Point(144, 364);
 			textBox10.Name = "textBox10";
 			textBox10.Size = new Size(100, 23);
 			textBox10.TabIndex = 9;
-			textBox10.Text = "0";
+			textBox10.Text = "10000";
 			// 
 			// textBox9
 			// 
-			textBox9.Location = new Point(144, 339);
+			textBox9.Location = new Point(144, 335);
 			textBox9.Name = "textBox9";
 			textBox9.Size = new Size(100, 23);
 			textBox9.TabIndex = 8;
-			textBox9.Text = "0.1";
+			textBox9.Text = "_";
 			// 
 			// textBox8
 			// 
-			textBox8.Location = new Point(144, 310);
+			textBox8.Location = new Point(144, 306);
 			textBox8.Name = "textBox8";
 			textBox8.Size = new Size(100, 23);
 			textBox8.TabIndex = 7;
@@ -284,7 +305,7 @@
 			// 
 			// textBox7
 			// 
-			textBox7.Location = new Point(144, 281);
+			textBox7.Location = new Point(144, 277);
 			textBox7.Name = "textBox7";
 			textBox7.Size = new Size(100, 23);
 			textBox7.TabIndex = 6;
@@ -292,7 +313,7 @@
 			// 
 			// textBox6
 			// 
-			textBox6.Location = new Point(144, 252);
+			textBox6.Location = new Point(144, 248);
 			textBox6.Name = "textBox6";
 			textBox6.Size = new Size(100, 23);
 			textBox6.TabIndex = 5;
@@ -300,7 +321,7 @@
 			// 
 			// textBox5
 			// 
-			textBox5.Location = new Point(144, 223);
+			textBox5.Location = new Point(144, 219);
 			textBox5.Name = "textBox5";
 			textBox5.Size = new Size(100, 23);
 			textBox5.TabIndex = 4;
@@ -308,7 +329,7 @@
 			// 
 			// textBox4
 			// 
-			textBox4.Location = new Point(144, 194);
+			textBox4.Location = new Point(144, 190);
 			textBox4.Name = "textBox4";
 			textBox4.Size = new Size(100, 23);
 			textBox4.TabIndex = 3;
@@ -316,7 +337,7 @@
 			// 
 			// textBox3
 			// 
-			textBox3.Location = new Point(144, 165);
+			textBox3.Location = new Point(144, 161);
 			textBox3.Name = "textBox3";
 			textBox3.Size = new Size(100, 23);
 			textBox3.TabIndex = 2;
@@ -324,7 +345,7 @@
 			// 
 			// textBox2
 			// 
-			textBox2.Location = new Point(144, 136);
+			textBox2.Location = new Point(144, 132);
 			textBox2.Name = "textBox2";
 			textBox2.Size = new Size(100, 23);
 			textBox2.TabIndex = 1;
@@ -332,7 +353,7 @@
 			// 
 			// textBox1
 			// 
-			textBox1.Location = new Point(144, 107);
+			textBox1.Location = new Point(144, 103);
 			textBox1.Name = "textBox1";
 			textBox1.Size = new Size(100, 23);
 			textBox1.TabIndex = 0;
@@ -354,7 +375,7 @@
 			textBoxPath.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
 			textBoxPath.Location = new Point(12, 12);
 			textBoxPath.Name = "textBoxPath";
-			textBoxPath.Size = new Size(232, 23);
+			textBoxPath.Size = new Size(312, 23);
 			textBoxPath.TabIndex = 16;
 			textBoxPath.Text = "Z:\\_document\\Programming\\cpp\\guilloché\\guilloche.exe";
 			// 
@@ -364,7 +385,7 @@
 			previewBox.Dock = DockStyle.Fill;
 			previewBox.Location = new Point(0, 0);
 			previewBox.Name = "previewBox";
-			previewBox.Size = new Size(530, 697);
+			previewBox.Size = new Size(450, 697);
 			previewBox.SizeMode = PictureBoxSizeMode.Zoom;
 			previewBox.TabIndex = 0;
 			previewBox.TabStop = false;
@@ -422,5 +443,7 @@
 		private ComboBox comboBoxAlgorithm;
 		private Button buttonPhotoshop;
 		private TextBox textBoxPhotoshop;
+		private Label label11;
+		private TextBox textBox11;
 	}
 }
